@@ -1,8 +1,9 @@
 <?php
-if(session_status() == 0) {
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/accomdation2");
-}
-require('config.php');
+
+require_once('config.php');
+require_once('session.php');
+
+session_logged();
 
 // CHECK FOR THE RECORD FROM TABLE
 $query = "select * from hotel";

@@ -1,8 +1,7 @@
 <?php
-if(session_status() == 1) {
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/accomdation2/dashboard.php");
-}
+require('session.php');
 require('config.php');
+
 if (isset($_POST['username']) && isset($_POST['password'])){
     // Assigning POST values to variables.
     $username = $_POST['username'];
@@ -16,14 +15,14 @@ if (isset($_POST['username']) && isset($_POST['password'])){
 
     if ($count == 1){
         //echo "Login Credentials verified";
-        session_start();
+        open_session();
         $_SESSION["username"] = $username;
         echo "<script type='text/javascript'>alert('Login Credentials verified')</script>";
         header('Location: http://localhost/accomdation2/dashboard.php');
     }else{
         echo "<script type='text/javascript'>alert('Invalid Login Credentials')</script>";
         //echo "Invalid Login Credentials";
-        header("Location: http://" . $_SERVER['HTTP_HOST'] . "/accomdation2");
+        header("Location: http://$server_link");
     }
 }
 ?>

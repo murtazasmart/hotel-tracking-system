@@ -1,8 +1,3 @@
-<?php
-if(session_status() == 1) {
-  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/accomdation2/dashboard.php");
-}
-?>
 <!doctype html>
 <html lang="en">
   <head>
