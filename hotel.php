@@ -89,7 +89,7 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
             <label >Price Range</label>
             <input type="text" class="form-control" name="priceRange" id="priceRange" value="<?php echo $priceRange; ?>">
             <label >Amenities</label>
-            <textarea type="text" class="form-control" name="amenities" id="amenities" value="<?php echo $amenities; ?>"></textarea>
+            <textarea type="text" class="form-control" name="amenities" id="amenities"><?php echo $amenities; ?></textarea>
             <label >Username</label>
             <input type="text" class="form-control" name="username" id="username" value="<?php echo $username; ?>">
             <label >Password</label>
