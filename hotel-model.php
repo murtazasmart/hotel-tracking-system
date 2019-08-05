@@ -33,10 +33,13 @@ function add() {
         $contactNo = isset($_POST['contactNo']) ? $_POST['contactNo'] : "";
         $zone = isset($_POST['zone']) ? $_POST['zone'] : "";
         $priceRange = isset($_POST['priceRange']) ? $_POST['priceRange'] : "";
+        $amenities = isset($_POST['amenities']) ? $_POST['amenities'] : "";
+        $username = isset($_POST['username']) ? $_POST['username'] : "";
+        $password = isset($_POST['password']) ? $_POST['password'] : "";
     
         // CHECK FOR THE RECORD FROM TABLE
-        $query = "INSERT INTO hotel(hotel_name, star_rating, location, address, contact, contact_person, zone, price_range, lastedit)" .
-        "VALUES('$hotelName', '$starRating', '$location', '$address', '$contactNo', '$contactPerson', '$zone', '$priceRange', NOW());";
+        $query = "INSERT INTO hotel(hotel_name, star_rating, location, address, contact, contact_person, zone, price_range, amenities, username, password, lastedit)" .
+        "VALUES('$hotelName', '$starRating', '$location', '$address', '$contactNo', '$contactPerson', '$zone', '$priceRange', '$amenities', '$username', '$password' NOW());";
     
         $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
         print_r($result);
@@ -64,10 +67,13 @@ function edit() {
         $contactNo = isset($_POST['contactNo']) ? $_POST['contactNo'] : "";
         $zone = isset($_POST['zone']) ? $_POST['zone'] : "";
         $priceRange = isset($_POST['priceRange']) ? $_POST['priceRange'] : "";
+        $amenities = isset($_POST['amenities']) ? $_POST['amenities'] : "";
+        $username = isset($_POST['username']) ? $_POST['username'] : "";
+        $password = isset($_POST['password']) ? $_POST['password'] : "";
 
         // CHECK FOR THE RECORD FROM TABLE
-        $query = "UPDATE hotel SET hotel_name = '$hotelName', star_rating = '$starRating', location = '$location', address = '$address', contact = '$contactNo', contact_person = '$contactPerson', zone = '$zone', price_range = '$priceRange', lastedit = NOW()" . 
-        "WHERE hote_id = $hotelId";
+        $query = "UPDATE hotel SET hotel_name = '$hotelName', star_rating = '$starRating', location = '$location', address = '$address', contact = '$contactNo', contact_person = '$contactPerson', zone = '$zone', price_range = '$priceRange', amenities = '$amenities', username = '$username', password = '$password', lastedit = NOW()" . 
+        "WHERE hotel_id = $hotelId";
 
         $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
         print_r($result);

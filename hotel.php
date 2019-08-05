@@ -13,7 +13,7 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
   $count = mysqli_num_rows($result);
   $result = mysqli_fetch_assoc($result);
   if ($count === 1) {
-    $hotelName = $result['hotel_id'];
+    $hotelId = $result['hotel_id'];
     $hotelName = $result['hotel_name'];
     $starRating = $result['star_rating'];
     $location = $result['location'];
@@ -22,6 +22,9 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
     $contactNo = $result['contact'];
     $zone = $result['zone'];
     $priceRange = $result['price_range'];
+    $amenities = $result['amenities'];
+    $username = $result['username'];
+    $password = $result['password'];
     $action = "edit";
   }
 } else if (isset($_GET["type"]) && $_GET["type"] === "add") {
@@ -34,6 +37,9 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
   $contactNo = "";
   $zone = "";
   $priceRange = "";
+  $amenities = "";
+  $username = "";
+  $password = "";
   $action = "add";
 } else {
   $hotelName = "";
@@ -44,6 +50,9 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
   $contactNo = "";
   $zone = "";
   $priceRange = "";
+  $amenities = "";
+  $username = "";
+  $password = "";
 }
 
 ?>
@@ -79,6 +88,12 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
             <input type="text" class="form-control" name="zone" id="zone" value="<?php echo $zone; ?>">
             <label >Price Range</label>
             <input type="text" class="form-control" name="priceRange" id="priceRange" value="<?php echo $priceRange; ?>">
+            <label >Amenities</label>
+            <textarea type="text" class="form-control" name="amenities" id="amenities" value="<?php echo $amenities; ?>"></textarea>
+            <label >Username</label>
+            <input type="text" class="form-control" name="username" id="username" value="<?php echo $username; ?>">
+            <label >Password</label>
+            <input type="text" class="form-control" name="password" id="password" value="<?php echo $password; ?>">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
