@@ -27,8 +27,9 @@ $count = mysqli_num_rows($result);
     
   </head>
   <body>
+  <?php require('nav.php'); ?>
       <div class="container">
-    <a name="" id="" class="btn btn-primary" href="./hotel.php?type=add" role="button">Add</a>
+    <a name="" id="" class="btn btn-success" href="./hotel.php?type=add" role="button">Add</a>
     <a name="" id="" class="btn btn-primary" href="./logout.php" role="button">Logout</a>
       <table id="hotels" class="table">
           <thead>
@@ -64,8 +65,8 @@ $count = mysqli_num_rows($result);
                   <td scope="row"><?php echo $res['price_range'];  ?></td>
                   <td scope="row"><?php echo $res['amenities'];  ?></td>
                   <td scope="row"><?php echo $res['lastedit'];  ?></td>
-                  <td scope="row"><a name="" id="" class="btn btn-primary" href="./hotel.php?id=<?php echo $res['hotel_id'] ?>&type=edit" role="button">Edit</a></td>
-                  <td scope="row"><a name="" id="" class="btn btn-warning" href="./deleteHotel.php?id=<?php echo $res['hotel_id'] ?>" role="button">Delete</a></td>
+                  <td scope="row"><a name="" id="" class="btn btn-info" href="./hotel.php?id=<?php echo $res['hotel_id'] ?>&type=edit" role="button">Edit</a></td>
+                  <td scope="row"><a name="" id="" class="btn btn-danger" href="./deleteHotel.php?id=<?php echo $res['hotel_id'] ?>" role="button">Delete</a></td>
               </tr>
   <?php } ?>
           </tbody>

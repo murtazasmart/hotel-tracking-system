@@ -69,6 +69,8 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
   </head>
   <body>
       <div class="container">
+      <?php require('nav.php'); ?>
+        <div class="">
         <form method="post" action="hotel-model.php?action=<?php echo $action; ?>">
         <div class="form-group">
             <input type="hidden" class="form-control" name="hotelId" id="hotelId" value="<?php echo $hotelId; ?>">
@@ -97,6 +99,7 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        </div>
       </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
