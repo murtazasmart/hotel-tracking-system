@@ -1,0 +1,49 @@
+body{
+    background: #00bcd417;
+}
+#hotels{
+    font-size: 12px;
+}
+
+#hotels th{
+    font-size: 12px;
+}
+
+#hotels label{
+    color: #000;
+}
+
+.accom_form{
+    background: #fff;
+    padding: 40px;
+}
+
+.room_count>input{
+    width: 50px !important;
+    background: #fff;
+    text-align: center;
+}
+
+.form-partition{
+    background: green;
+    padding: 10px 20px;
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom-right-radius: 300px;
+}
+
+.marg-top{
+    margin-top: 30px;
+}
+
+.custom-file{
+    border: 2px solid #aaa;
+    border-radius: 5px;
+}
+
+.custom-file:hover{
+    border: 2px solid #9c27b0;
+    border-radius: 5px;
+}

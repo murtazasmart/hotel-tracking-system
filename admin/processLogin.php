@@ -1,6 +1,5 @@
 <?php
-require('session.php');
-require('config.php');
+require 'config.php';
 
 if (isset($_POST['username']) && isset($_POST['password'])){
     // Assigning POST values to variables.
@@ -15,14 +14,13 @@ if (isset($_POST['username']) && isset($_POST['password'])){
 
     if ($count == 1){
         //echo "Login Credentials verified";
-        open_session();
-        $_SESSION["username"] = $username;
-        echo "<script type='text/javascript'>alert('Login Credentials verified')</script>";
-        header('Location: http://localhost/accomdation2/dashboard.php');
+        $_SESSION["ac_accom_admin"] = $username;
+        header("Location: $server_link/");
+        exit();
     }else{
-        echo "<script type='text/javascript'>alert('Invalid Login Credentials')</script>";
         //echo "Invalid Login Credentials";
-        header("Location: http://$server_link");
+        header("Location: $server_link/login.php");
+        exit();
     }
 }
 ?>

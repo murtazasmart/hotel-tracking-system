@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Accommodation</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +11,7 @@
     <link href="signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
-        <form method="post" class="form-signin" action="login.php">
+        <form method="post" class="form-signin" action="processLogin.php">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <div class="form-group">
             <label for="exampleInputEmail1">User ID</label>
@@ -23,7 +23,7 @@
             <input type="password" class="form-control" name="password" id="password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-        </form> 
+        </form>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
