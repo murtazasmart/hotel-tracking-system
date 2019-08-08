@@ -1,10 +1,5 @@
 <?php
 
-if(session_status() == 0) {
-  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/accomdation2");
-}
-require('config.php');
-
 if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
   // CHECK FOR THE RECORD FROM TABLE
   $query = "select * from hotel WHERE hotel_id = " . $_GET['id'];
@@ -56,55 +51,85 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
 }
 
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <title></title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-      <div class="container">
-      <?php require('nav.php'); ?>
-        <div class="">
-        <form method="post" action="hotel-model.php?action=<?php echo $action; ?>">
-        <div class="form-group">
-            <input type="hidden" class="form-control" name="hotelId" id="hotelId" value="<?php echo $hotelId; ?>">
+        <div class="row">
+          <div class="col-12">
+            <h1>Update Hotel Details</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+          <form method="post" action="hotel-model.php?action=<?php echo $action; ?>" class="accom_form">
+          <input type="hidden" class="form-control" name="hotelId" id="hotelId" value="<?php echo $hotelId; ?>">
+          <h3 class="form-partition">Details</h3>
+          <div class="form-group">
             <label>Hotel Name</label>
             <input type="text" class="form-control" name="hotelName" id="hotelName" value="<?php echo $hotelName; ?>">
+          </div>
+          <div class="form-group">
             <label>Star rating</label>
             <input type="text" class="form-control" name="starRating" id="starRating" value="<?php echo $starRating; ?>">
+          </div>
+          <div class="form-group">
             <label >Location</label>
             <input type="text" class="form-control" name="location" id="location" value="<?php echo $location; ?>">
+          </div>
+          <div class="form-group">
             <label >Address</label>
             <input type="text" class="form-control" name="address" id="address" value="<?php echo $address; ?>">
+          </div>
+          <div class="form-group">
             <label >Contact Number</label>
             <input type="text" class="form-control" name="contactNo" id="contactNo" value="<?php echo $contactNo; ?>">
+          </div>
+          <div class="form-group">
             <label >Contact Person</label>
             <input type="text" class="form-control" name="contactPerson" id="contactPerson" value="<?php echo $contactPerson; ?>">
+          </div>
+          <div class="form-group">
             <label >Zone</label>
             <input type="text" class="form-control" name="zone" id="zone" value="<?php echo $zone; ?>">
+          </div>
+          <div class="form-group">
             <label >Price Range</label>
             <input type="text" class="form-control" name="priceRange" id="priceRange" value="<?php echo $priceRange; ?>">
+          </div>
+          <div class="form-group">
             <label >Amenities</label>
             <textarea type="text" class="form-control" name="amenities" id="amenities"><?php echo $amenities; ?></textarea>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="img1" name="img1">
+                  <label class="custom-file-label" for="img1">Image 1</label>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="img2" name="img2">
+                  <label class="custom-file-label" for="img2">Image 2</label>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="img3" name="img3">
+                  <label class="custom-file-label" for="img3">Image 3</label>
+                </div>
+              </div>
+          </div>
+          <h3 class="form-partition marg-top">Credentials</h3>
+          <div class="form-group">
             <label >Username</label>
             <input type="text" class="form-control" name="username" id="username" value="<?php echo $username; ?>">
+          </div>
+          <div class="form-group">
             <label >Password</label>
             <input type="text" class="form-control" name="password" id="password" value="<?php echo $password; ?>">
+          </div>
+          <div class="form-group">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+          </div>
         </div>
-      </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
