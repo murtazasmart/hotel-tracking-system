@@ -48,7 +48,7 @@ function add() {
 
         // CHECK FOR THE RECORD FROM TABLE
         $query = "INSERT INTO hotel(hotel_name, star_rating, location, address, contact, contact_person, zone, price_range, amenities, username, password, lastedit, img1, img2, img3)" .
-        "VALUES('$hotelName', '$starRating', '$location', '$address', '$contactNo', '$contactPerson', '$zone', '$priceRange', '$amenities', '$username', '$password' NOW(), '$pathImg1', '$pathImg2', '$pathImg3');";
+        "VALUES('$hotelName', '$starRating', '$location', '$address', '$contactNo', '$contactPerson', '$zone', '$priceRange', '$amenities', '$username', '$password', NOW(), '$pathImg1', '$pathImg2', '$pathImg3');";
 
         $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
         print_r($result);
@@ -89,7 +89,7 @@ function edit() {
 
         //let's upload images if there are any set
         if(is_uploaded_file($_FILES['img1']['tmp_name'])){
-            $img1 = uploadProductImage('img1', SRV_ROOT . 'images/product/');
+            $img1 = uploadProductImage('img1', SRV_ROOT . 'images/');
             $pathImg1 = $img1['image'];
             $sql_update_img1 = "UPDATE hotel SET img1 = '$pathImg1' WHERE hotel_id = $hotelId";
             $result = mysqli_query($connection, $sql_update_img1) or die(mysqli_error($connection));
@@ -97,7 +97,7 @@ function edit() {
 
         //let's upload images if there are any set
         if(is_uploaded_file($_FILES['img2']['tmp_name'])){
-            $img2 = uploadProductImage('img2', SRV_ROOT . 'images/product/');
+            $img2 = uploadProductImage('img2', SRV_ROOT . 'images/');
             $pathImg2 = $img2['image'];
             $sql_update_img2 = "UPDATE hotel SET img2 = '$pathImg2' WHERE hotel_id = $hotelId";
             $result = mysqli_query($connection, $sql_update_img2) or die(mysqli_error($connection));
@@ -105,7 +105,7 @@ function edit() {
 
         //let's upload images if there are any set
         if(is_uploaded_file($_FILES['img3']['tmp_name'])){
-            $img3 = uploadProductImage('img3', SRV_ROOT . 'images/product/');
+            $img3 = uploadProductImage('img3', SRV_ROOT . 'images/');
             $pathImg3 = $img3['image'];
             $sql_update_img3 = "UPDATE hotel SET img3 = '$pathImg3' WHERE hotel_id = $hotelId";
             $result = mysqli_query($connection, $sql_update_img3) or die(mysqli_error($connection));

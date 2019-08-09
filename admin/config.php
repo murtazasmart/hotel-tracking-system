@@ -18,25 +18,25 @@
     $thisFile = str_replace('\\', '/', __FILE__);
     $docRoot = $_SERVER['DOCUMENT_ROOT'];
 
-    $webRoot  = str_replace(array($docRoot, 'common/config.php'), '', $thisFile);
-    $srvRoot  = str_replace('common/config.php', '', $thisFile);
+    $webRoot  = str_replace(array($docRoot, 'admin/config.php'), '', $thisFile);
+    $srvRoot  = str_replace('admin/config.php', '', $thisFile);
 
     define('WEB_ROOT', $webRoot);
     define('SRV_ROOT', $srvRoot);
 
     // all category image width must not
     // exceed 75 pixels
-    define('MAX_CATEGORY_IMAGE_WIDTH', 75);
+    define('MAX_CATEGORY_IMAGE_WIDTH', 600);
 
     // do we need to limit the product image width?
     // setting this value to 'true' is recommended
     define('LIMIT_PRODUCT_WIDTH', true);
 
     // maximum width for all product image
-    define('MAX_PRODUCT_IMAGE_WIDTH', 400);
+    define('MAX_PRODUCT_IMAGE_WIDTH', 1000);
 
     // the width for product thumbnail
-    define('THUMBNAIL_WIDTH', 100);
+    define('THUMBNAIL_WIDTH', 600);
 
     define('PRODUCT_IMAGE_DIR',  'images/');
 

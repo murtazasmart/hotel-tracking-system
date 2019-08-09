@@ -35,7 +35,12 @@ $count = mysqli_num_rows($result);
   while($res = mysqli_fetch_array($result)) {
       ?>
               <tr>
-                  <td scope="row"><?php echo $res['hotel_name'];  ?></td>
+                  <td scope="row" align="center" class="">
+                    <?php if($res['img1'] != ''){ ?> <img src="../images/<?php echo $res['img1']; ?>" class="img-fluid" /> <?php } ?>
+                    <!--<?php if($res['img2'] != ''){ ?> <img src="../images/<?php echo $res['img2']; ?>" class="img-fluid" /> <?php } ?>
+                    <?php if($res['img3'] != ''){ ?> <img src="../images/<?php echo $res['img3']; ?>" class="img-fluid" /> <?php } ?>-->
+                    <?php echo $res['hotel_name'];  ?>
+                  </td>
                   <td scope="row" align="center" class="align-moddle"><?php echo $res['star_rating'];  ?><img src="img/rating.png" class="img-fluid" style="max-width:15px;"></td>
                   <td scope="row"><?php echo $res['location'];  ?></td>
                   <td scope="row"><?php echo $res['address'];  ?></td>
