@@ -40,7 +40,7 @@ foreach ($arr as &$value) {
                       <input type="number" class="form-control" name="avail_count_<?php echo $res['room_id']; ?>" data-roomid="<?php echo $res['room_id']; ?>" class="avail_count_<?php echo $res['room_id']; ?>" value="<?php echo $res['available_count'];  ?>">
                     </div>
                   </td>
-                  <td><a href="del-room.php?id=<?php echo $res['room_id']; ?>" class="btn btn-warning btn-sm">X</a>
+                  <td><a href="room-model.php?action=delete&id=<?php echo $res['room_id']; ?>" class="btn btn-warning btn-sm">X</a>
               </tr>
   <?php } ?>
           </tbody>
@@ -50,21 +50,21 @@ foreach ($arr as &$value) {
       </div>
       <div class="col-6">
         <h3>Add Room</h3>
-        <form class="form accom_form" action="./index.php?view=rooms&id=<?php echo $hotel_id; ?>&action=add">
+        <form class="form accom_form" action="./room-model.php?hotelId=<?php echo $hotel_id; ?>&action=add">
           <div class="form-group">
             <label for="">Name</label>
-            <input type="text" name="name" id="name" class="form-control">
+            <input type="text" name="roomName" id="roomName" class="form-control">
           </div>
           <div class="form-group">
             <label for="">Description</label>
             <div class="form-group">
               <label for=""></label>
-              <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+              <textarea class="form-control" name="roomDescription" id="roomDescription" rows="3"></textarea>
             </div>
           </div>
           <div class="form-group">
             <label for="">Count</label>
-            <input type="number" name="count" id="count" class="form-control">
+            <input type="number" name="roomCount" id="roomCount" class="form-control">
           </div>
           <input type="submit" value="Add" class="btn btn-success" />
         </form>
