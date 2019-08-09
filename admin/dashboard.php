@@ -28,6 +28,8 @@ $count = mysqli_num_rows($result);
                   <th>Price Range</th>
                   <th>Amenities</th>
                   <th>Distance From Masjid</th>
+                  <th>Website</th>
+                  <th>GMaps Link</th>
                   <th>Last Edit</th>
                   <th>Action</th>
               </tr>
@@ -52,6 +54,8 @@ $count = mysqli_num_rows($result);
                   <td scope="row"><?php echo $res['amenities'];  ?></td>
                   <td scope="row"><?php echo $res['price_range'];  ?></td>
                   <td scope="row"><?php echo $res['distance_from_masjid'];  ?></td>
+                  <td scope="row"><?php echo $res['website'];  ?></td>
+                  <td scope="row"><?php echo $res['gmapslink'];  ?></td>
                   <td scope="row"><?php echo $res['lastedit'];  ?></td>
                     <td scope="row">
                         <a name="" id="" class="btn btn-primary btn-sm" href="./index.php?view=rooms&id=<?php echo $res['hotel_id'] ?>" role="button">Rooms</a>
@@ -74,6 +78,8 @@ $count = mysqli_num_rows($result);
                 <th>Price Range</th>
                 <th>Amenities</th>
                 <th>Distance From Masjid</th>
+                <th>Website</th>
+                <th>GMaps Link</th>
                 <th>Last Edit</th>
                 <th>Action</th>
             </tr>

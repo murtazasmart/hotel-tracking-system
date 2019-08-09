@@ -20,6 +20,8 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
     $amenities = $result['amenities'];
     $type = $result['type'];
     $distanceFromMasjid = $result['distance_from_masjid'];
+    $website = $result['website'];
+    $gmapslink = $result['gmapslink'];
     $username = $result['username'];
     $password = $result['password'];
     $action = "edit";
@@ -37,6 +39,8 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
   $amenities = "";
   $type = "";
   $distanceFromMasjid = "";
+  $website = "";
+  $gmapslink = "";
   $username = "";
   $password = "";
   $action = "add";
@@ -52,6 +56,8 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
   $amenities = "";
   $type = "";
   $distanceFromMasjid = "";
+  $website = "";
+  $gmapslink = "";
   $username = "";
   $password = "";
 }
@@ -113,6 +119,14 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
           <div class="form-group">
             <label >Distance from masjid</label>
             <textarea type="text" class="form-control" name="distanceFromMasjid" id="distanceFromMasjid"><?php echo $distanceFromMasjid; ?></textarea>
+          </div>
+          <div class="form-group">
+            <label >Hotel/Apartment Website</label>
+            <textarea type="text" class="form-control" name="website" id="website"><?php echo $website; ?></textarea>
+          </div>
+          <div class="form-group">
+            <label >Google Maps Link</label>
+            <textarea type="text" class="form-control" name="gmapslink" id="gmapslink"><?php echo $gmapslink; ?></textarea>
           </div>
           <div class="form-group">
             <div class="row">
