@@ -58,7 +58,7 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
         </div>
         <div class="row">
           <div class="col-8">
-          <form method="post" action="hotel-model.php?action=<?php echo $action; ?>" class="accom_form">
+          <form method="post" action="hotel-model.php?action=<?php echo $action; ?>" class="accom_form"  enctype="multipart/form-data">
           <input type="hidden" class="form-control" name="hotelId" id="hotelId" value="<?php echo $hotelId; ?>">
           <h3 class="form-partition">Details</h3>
           <div class="form-group">
