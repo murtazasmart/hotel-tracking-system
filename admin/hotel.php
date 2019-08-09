@@ -18,6 +18,8 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
     $zone = $result['zone'];
     $priceRange = $result['price_range'];
     $amenities = $result['amenities'];
+    $type = $result['type'];
+    $distanceFromMasjid = $result['distance_from_masjid'];
     $username = $result['username'];
     $password = $result['password'];
     $action = "edit";
@@ -33,6 +35,8 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
   $zone = "";
   $priceRange = "";
   $amenities = "";
+  $type = "";
+  $distanceFromMasjid = "";
   $username = "";
   $password = "";
   $action = "add";
@@ -46,6 +50,8 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
   $zone = "";
   $priceRange = "";
   $amenities = "";
+  $type = "";
+  $distanceFromMasjid = "";
   $username = "";
   $password = "";
 }
@@ -64,6 +70,13 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
           <div class="form-group">
             <label>Hotel Name</label>
             <input type="text" class="form-control" name="hotelName" id="hotelName" value="<?php echo $hotelName; ?>">
+          </div>
+          <div class="form-group">
+            <label>Accommodation Type</label>
+            <select class="form-control" name="type" id="type">
+              <option>Apartment</option>
+              <option <?php if ($type== "Hotel") echo('selected="selected"'); ?>>Hotel</option>
+            </select>
           </div>
           <div class="form-group">
             <label>Star rating</label>
@@ -96,6 +109,10 @@ if (isset($_GET["type"]) && $_GET["type"] === "edit" && isset($_GET["id"])) {
           <div class="form-group">
             <label >Amenities</label>
             <textarea type="text" class="form-control" name="amenities" id="amenities"><?php echo $amenities; ?></textarea>
+          </div>
+          <div class="form-group">
+            <label >Distance from masjid</label>
+            <textarea type="text" class="form-control" name="distanceFromMasjid" id="distanceFromMasjid"><?php echo $distanceFromMasjid; ?></textarea>
           </div>
           <div class="form-group">
             <div class="row">

@@ -35,6 +35,8 @@ function add() {
         $zone = isset($_POST['zone']) ? $_POST['zone'] : "";
         $priceRange = isset($_POST['priceRange']) ? $_POST['priceRange'] : "";
         $amenities = isset($_POST['amenities']) ? $_POST['amenities'] : "";
+        $type = isset($_POST['type']) ? $_POST['type'] : "";
+        $distanceFromMasjid = isset($_POST['distanceFromMasjid']) ? $_POST['distanceFromMasjid'] : "";
         $username = isset($_POST['username']) ? $_POST['username'] : "";
         $password = isset($_POST['password']) ? $_POST['password'] : "";
 
@@ -47,8 +49,8 @@ function add() {
         $pathImg3 = $img3['image'];
 
         // CHECK FOR THE RECORD FROM TABLE
-        $query = "INSERT INTO hotel(hotel_name, star_rating, location, address, contact, contact_person, zone, price_range, amenities, username, password, lastedit, img1, img2, img3)" .
-        "VALUES('$hotelName', '$starRating', '$location', '$address', '$contactNo', '$contactPerson', '$zone', '$priceRange', '$amenities', '$username', '$password', NOW(), '$pathImg1', '$pathImg2', '$pathImg3');";
+        $query = "INSERT INTO hotel(hotel_name, star_rating, location, address, contact, contact_person, zone, price_range, amenities, username, password, lastedit, img1, img2, img3, type, distance_from_masjid)" .
+        "VALUES('$hotelName', '$starRating', '$location', '$address', '$contactNo', '$contactPerson', '$zone', '$priceRange', '$amenities', '$username', '$password', NOW(), '$pathImg1', '$pathImg2', '$pathImg3', '$type', '$distanceFromMasjid');";
 
         $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
         print_r($result);
@@ -77,11 +79,13 @@ function edit() {
         $zone = isset($_POST['zone']) ? $_POST['zone'] : "";
         $priceRange = isset($_POST['priceRange']) ? $_POST['priceRange'] : "";
         $amenities = isset($_POST['amenities']) ? $_POST['amenities'] : "";
+        $type = isset($_POST['type']) ? $_POST['type'] : "";
+        $distanceFromMasjid = isset($_POST['distanceFromMasjid']) ? $_POST['distanceFromMasjid'] : "";
         $username = isset($_POST['username']) ? $_POST['username'] : "";
         $password = isset($_POST['password']) ? $_POST['password'] : "";
 
         // CHECK FOR THE RECORD FROM TABLE
-        $query = "UPDATE hotel SET hotel_name = '$hotelName', star_rating = '$starRating', location = '$location', address = '$address', contact = '$contactNo', contact_person = '$contactPerson', zone = '$zone', price_range = '$priceRange', amenities = '$amenities', username = '$username', password = '$password', lastedit = NOW()" .
+        $query = "UPDATE hotel SET hotel_name = '$hotelName', star_rating = '$starRating', location = '$location', address = '$address', contact = '$contactNo', contact_person = '$contactPerson', zone = '$zone', price_range = '$priceRange', amenities = '$amenities', username = '$username', password = '$password', lastedit = NOW(), type = '$type', distance_from_masjid = '$distanceFromMasjid'" .
         "WHERE hotel_id = $hotelId";
 
         $result = mysqli_query($connection, $query) or die(mysqli_error($connection));

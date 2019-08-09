@@ -19,6 +19,7 @@ $count = mysqli_num_rows($result);
           <thead class="thead-dark">
               <tr>
                   <th>Hotel</th>
+                  <th>Type</th>
                   <th>Star</th>
                   <th>Location</th>
                   <th>Address</th>
@@ -26,6 +27,7 @@ $count = mysqli_num_rows($result);
                   <th>Zone</th>
                   <th>Price Range</th>
                   <th>Amenities</th>
+                  <th>Distance From Masjid</th>
                   <th>Last Edit</th>
                   <th>Action</th>
               </tr>
@@ -41,13 +43,15 @@ $count = mysqli_num_rows($result);
                     <?php if($res['img3'] != ''){ ?> <img src="../images/<?php echo $res['img3']; ?>" class="img-fluid" /> <?php } ?>-->
                     <?php echo $res['hotel_name'];  ?>
                   </td>
+                  <td scope="row"><?php echo $res['type'];  ?></td>
                   <td scope="row" align="center" class="align-moddle"><?php echo $res['star_rating'];  ?><img src="img/rating.png" class="img-fluid" style="max-width:15px;"></td>
                   <td scope="row"><?php echo $res['location'];  ?></td>
                   <td scope="row"><?php echo $res['address'];  ?></td>
                   <td scope="row"><?php echo $res['contact'];  ?><br /><?php echo $res['contact_person']; ?></td>
                   <td scope="row"><?php echo $res['zone'];  ?></td>
-                  <td scope="row"><?php echo $res['price_range'];  ?></td>
                   <td scope="row"><?php echo $res['amenities'];  ?></td>
+                  <td scope="row"><?php echo $res['price_range'];  ?></td>
+                  <td scope="row"><?php echo $res['distance_from_masjid'];  ?></td>
                   <td scope="row"><?php echo $res['lastedit'];  ?></td>
                     <td scope="row">
                         <a name="" id="" class="btn btn-primary btn-sm" href="./index.php?view=rooms&id=<?php echo $res['hotel_id'] ?>" role="button">Rooms</a>
@@ -61,6 +65,7 @@ $count = mysqli_num_rows($result);
         <tfoot>
             <tr>
                 <th>Hotel Name</th>
+                <th>Type</th>
                 <th>Star Rating</th>
                 <th>Location</th>
                 <th>Address</th>
@@ -68,6 +73,7 @@ $count = mysqli_num_rows($result);
                 <th>Zone</th>
                 <th>Price Range</th>
                 <th>Amenities</th>
+                <th>Distance From Masjid</th>
                 <th>Last Edit</th>
                 <th>Action</th>
             </tr>
