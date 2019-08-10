@@ -3,7 +3,7 @@
     <?php if($view != "dashboard") {
         ?>
         <div class="align-right">
-            <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn btn-sm btn-primary">Back</a>
+            <a href="<?php echo $server_link; ?>" class="btn btn-sm btn-primary">Back</a>
         </div>
         <?php
     }

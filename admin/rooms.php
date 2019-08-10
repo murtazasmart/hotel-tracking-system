@@ -20,6 +20,7 @@ $count = mysqli_num_rows($result);
               <tr>
                   <th>Name</th>
                   <th>Count</th>
+                  <th>Update</th>
                   <th>Delete</th>
               </tr>
           </thead>
@@ -31,26 +32,32 @@ foreach ($arr as &$value) {
 <?php
   while($res = mysqli_fetch_array($result)) {
       ?>
+      <form method="get" action="./room-model.php?action=updateRoom">
               <tr>
                   <td scope="row">
                     <?php echo $res['room_name'];  ?><br /><small><?php echo $res['room_description'];  ?></small>
                   </td>
                   <td scope="row">
                     <div class="form-group room_count">
-                      <input type="number" class="form-control" name="avail_count_<?php echo $res['room_id']; ?>" data-roomid="<?php echo $res['room_id']; ?>" class="avail_count_<?php echo $res['room_id']; ?>" value="<?php echo $res['available_count'];  ?>">
+                      <input type="number" class="form-control" name="count" data-roomid="<?php echo $res['room_id']; ?>" class="avail_count_<?php echo $res['room_id']; ?>" value="<?php echo $res['available_count'];  ?>">
+                      <input type="hidden" name="hotelId" value="<?php echo $res['hotel_id']; ?>">
+                      <input type="hidden" name="roomId" value="<?php echo $res['room_id']; ?>">
+                      <input type="hidden" name="action" value="updateRoom">
                     </div>
                   </td>
+                  <td><input type="submit" value="Update" class="btn btn-success btn-sm" />
                   <td><a href="room-model.php?action=delete&id=<?php echo $res['room_id']; ?>" class="btn btn-warning btn-sm">X</a>
               </tr>
   <?php } ?>
+</form>
           </tbody>
       </table>
-      <a href="<?php echo $server_link; ?>" class="btn btn-success">Update</a>
+      <!-- <a href="<?php //echo $server_link; ?>" class="btn btn-success">Update</a> -->
       </div>
       </div>
       <div class="col-6">
         <h3>Add Room</h3>
-        <form class="form accom_form" action="./room-model.php?hotelId=<?php echo $hotel_id; ?>&action=add">
+        <form method="post" class="form accom_form" action="./room-model.php?hotelId=<?php echo $hotel_id; ?>&action=add">
           <div class="form-group">
             <label for="">Name</label>
             <input type="text" name="roomName" id="roomName" class="form-control">

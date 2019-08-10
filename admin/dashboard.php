@@ -60,7 +60,7 @@ $count = mysqli_num_rows($result);
                     <td scope="row">
                         <a name="" id="" class="btn btn-primary btn-sm" href="./index.php?view=rooms&id=<?php echo $res['hotel_id'] ?>" role="button">Rooms</a>
                         <a name="" id="" class="btn btn-info btn-sm" href="./index.php?view=hotel&id=<?php echo $res['hotel_id'] ?>&type=edit" role="button">Edit</a>
-                        <a name="" id="" class="btn btn-danger btn-sm" href="./deleteHotel.php?id=<?php echo $res['hotel_id'] ?>" role="button">Delete</a>
+                        <a name="" id="" class="btn btn-danger btn-sm" href="./hotel-model.php?action=delete&id=<?php echo $res['hotel_id'] ?>" role="button">Delete</a>
                     </td>
               </tr>
   <?php } ?>

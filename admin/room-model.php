@@ -15,8 +15,11 @@ if (isset($_GET['action'])) {
         case 'delete':
             delete();
             break;
+        case 'updateRoom':
+            updateRoom();
+            break;
         default:
-            header("Location: http://". $_SERVER['HTTP_REFERER'] );
+            header("Location: ". $_SERVER['HTTP_REFERER'] );
             break;
     }
 } else {
@@ -26,7 +29,6 @@ if (isset($_GET['action'])) {
 function add() {
     global $connection, $server_link;
 
-    echo "we're here";
     if(isset($_POST['roomName'])) {
         $roomName = isset($_POST['roomName']) ? $_POST['roomName'] : "";
         $roomDescription = isset($_POST['roomDescription']) ? $_POST['roomDescription'] : "";
@@ -37,11 +39,9 @@ function add() {
         // CHECK FOR THE RECORD FROM TABLE
         $query = "INSERT INTO rooms(hotel_id, room_name, room_description, available_count)" .
         "VALUES($hotelId, '$roomName', '$roomDescription', $roomCount);";
-
-        echo $query;
-
+        // echo ($query);
         $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-        print_r($result);
+        // print_r($result);
         if ($result === TRUE) {
             // echo "<script type='text/javascript'>alert('Success');</script>";
             header("Location: ". $_SERVER['HTTP_REFERER'] );
@@ -67,7 +67,7 @@ function edit() {
         "WHERE room_id = $roomId";
 
         $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-        print_r($result);
+        // print_r($result);
         if ($result === TRUE) {
             // echo "<script type='text/javascript'>alert('Success');</script>";
             header("Location: $server_link");
@@ -88,6 +88,26 @@ function delete() {
 
         $result1 = mysqli_query($connection, $query1) or die(mysqli_error($connection));
         //$count1 = mysqli_num_rows($result1);
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+    }
+}
+
+function updateRoom() {
+    global $connection, $server_link;
+    if (isset($_GET['roomId']) && isset($_GET['hotelId']) && isset($_GET['count']) ) {
+        $roomId = $_GET['roomId'];
+        $hotelId = $_GET['hotelId'];
+        $count = $_GET['count'];
+        $query = "UPDATE rooms SET available_count = $count" .
+        " WHERE room_id = $roomId AND hotel_id = $hotelId";
+
+        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+        // print_r($result);
+        if ($result === TRUE) {
+            // echo "<script type='text/javascript'>alert('Success');</script>";
+            header("Location: ". $_SERVER['HTTP_REFERER'] );
+        }
+    } else {
         header("Location: " . $_SERVER['HTTP_REFERER']);
     }
 }
